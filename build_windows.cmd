@@ -4,7 +4,7 @@ SET project_dir="%cd%"
 
 echo Set up environment...
 set PATH=%QT%\bin\;C:\Qt\Tools\QtCreator\bin\;C:\Qt\QtIFW2.0.1\bin\;%PATH%
-call "C:\Program Files (x86)\Microsoft Visual Studio 13.0\VC\vcvarsall.bat" %PLATFORM%
+call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %PLATFORM%
 
 echo Building lmcapp...
 cd ./lmcapp/src
