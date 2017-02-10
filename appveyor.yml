@@ -8,6 +8,7 @@ environment:
 
 init:
   - set TAG_NAME=%APPVEYOR_REPO_TAG_NAME%
+  - robocopy C:\OpenSSL-Win64 \openssl
 
 build_script:
   - call "build_windows.cmd"
