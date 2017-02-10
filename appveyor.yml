@@ -10,6 +10,6 @@ init:
   - set TAG_NAME=%APPVEYOR_REPO_TAG_NAME%
 
 build_script:
-  - cmd: >-
+  - |-
     (robocopy /e C:\OpenSSL-Win64 openssl) ^& IF %ERRORLEVEL% LEQ 1 exit 0
   - call "build_windows.cmd"
