@@ -2,7 +2,7 @@ os: Visual Studio 2015
 
 environment:
   matrix:
-  - QT: C:\Qt\5.7\msvc2015_64
+  - QT: C:\Qt\5.5\msvc2013_64
     PLATFORM: amd64
     COMPILER: msvc
 
