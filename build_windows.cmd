@@ -8,12 +8,12 @@ call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %PLA
 
 echo Building lmcapp...
 cd ./lmcapp/src
-qmake lmcapp.pro -spec win32-msvc2013 CONFIG+=x86_64 CONFIG-=debug CONFIG+=release
+qmake lmcapp.pro -spec win32-msvc2013 CONFIG+=x86 CONFIG-=debug CONFIG+=release
 nmake
 
 echo Building lmc...
 cd ../../lmc/src
-qmake lmc.pro -spec win32-msvc2013 CONFIG+=x86_64 CONFIG-=debug CONFIG+=release
+qmake lmc.pro -spec win32-msvc2013 CONFIG+=x86 CONFIG-=debug CONFIG+=release
 nmake
 
 ::echo Running tests...
