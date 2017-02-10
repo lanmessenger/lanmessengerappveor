@@ -6,10 +6,12 @@ echo Set up environment...
 set PATH=%QT%\bin\;C:\Qt\Tools\QtCreator\bin\;C:\Qt\QtIFW2.0.1\bin\;%PATH%
 call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %PLATFORM%
 
-echo Building YourApp...
+echo Building lmcapp...
 cd ./lmcapp/src
 qmake lmcapp.pro -spec win32-msvc2015 CONFIG+=x86_64 CONFIG-=debug CONFIG+=release
 nmake
+
+echo Building lmc...
 cd ../../lmc/src
 qmake lmc.pro -spec win32-msvc2015 CONFIG+=x86_64 CONFIG-=debug CONFIG+=release
 nmake
