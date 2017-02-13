@@ -11,14 +11,14 @@ echo Building lmcapp...
 cd ./lmcapp/src
 ::qmake lmcapp.pro -spec win32-msvc2013 CONFIG+=x86 CONFIG-=debug CONFIG+=release
 ::nmake
-qmake lmcapp.pro -spec mingw CONFIG+=x86 CONFIG-=debug CONFIG+=release
+qmake lmcapp.pro -spec win32-g++ CONFIG+=x86 CONFIG-=debug CONFIG+=release
 mingw32-make
 
 echo Building lmc...
 cd ../../lmc/src
 ::qmake lmc.pro -spec win32-msvc2013 CONFIG+=x86 CONFIG-=debug CONFIG+=release
 ::nmake
-qmake lmc.pro -spec mingw CONFIG+=x86 CONFIG-=debug CONFIG+=release
+qmake lmc.pro -spec win32-g++ CONFIG+=x86 CONFIG-=debug CONFIG+=release
 mingw32-make
 
 ::echo Running tests...
