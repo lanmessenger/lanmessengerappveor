@@ -4,17 +4,22 @@ SET project_dir="%cd%"
 
 echo Set up environment...
 set PATH=%QT%\bin\;C:\Qt\Tools\QtCreator\bin\;C:\Qt\QtIFW2.0.1\bin\;%PATH%
-call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %PLATFORM%
+::call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %PLATFORM%
+set PATH=C:\Qt\Tools\mingw492_32;%PATH%
 
 echo Building lmcapp...
 cd ./lmcapp/src
-qmake lmcapp.pro -spec win32-msvc2013 CONFIG+=x86 CONFIG-=debug CONFIG+=release
-nmake
+::qmake lmcapp.pro -spec win32-msvc2013 CONFIG+=x86 CONFIG-=debug CONFIG+=release
+::nmake
+qmake lmcapp.pro -spec win32-mingw CONFIG+=x86 CONFIG-=debug CONFIG+=release
+make
 
 echo Building lmc...
 cd ../../lmc/src
-qmake lmc.pro -spec win32-msvc2013 CONFIG+=x86 CONFIG-=debug CONFIG+=release
-nmake
+::qmake lmc.pro -spec win32-msvc2013 CONFIG+=x86 CONFIG-=debug CONFIG+=release
+::nmake
+qmake lmc.pro -spec win32-mingw CONFIG+=x86 CONFIG-=debug CONFIG+=release
+make
 
 ::echo Running tests...
 
