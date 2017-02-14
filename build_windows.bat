@@ -30,6 +30,7 @@ call "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" x86
 cd ./lmcapp/src
 qmake lmcapp.pro -spec win32-msvc2013 CONFIG+=x86 CONFIG-=debug CONFIG+=release
 nmake
+move ..\lib\lmcapp2.lib ..\lib\lmcapp.lib
 
 cd ../../lmc/src
 qmake lmc.pro -spec win32-msvc2013 CONFIG+=x86 CONFIG-=debug CONFIG+=release
@@ -46,8 +47,7 @@ call "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" amd6
 cd ./lmcapp/src
 qmake lmcapp.pro CONFIG+=x86_64 CONFIG-=debug CONFIG+=release
 nmake
-dir ..\lib
-dir /s ..\..\*.lib
+move ..\lib\lmcapp2.lib ..\lib\lmcapp.lib
 
 cd ../../lmc/src
 qmake lmc.pro CONFIG+=x86_64 CONFIG-=debug CONFIG+=release
