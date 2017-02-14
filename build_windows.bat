@@ -14,7 +14,7 @@ cd ./lmcapp/src
 qmake lmcapp.pro -spec win32-g++ CONFIG+=x86 CONFIG-=debug CONFIG+=release
 mingw32-make
 dir ..\lib
-move ..\lib\lmcapp.lib ..\lib\lmcapp2.lib
+move ..\lib\liblmcapp2.a ..\lib\liblmcapp.a
 
 cd ../../lmc/src
 qmake lmc.pro -spec win32-g++ CONFIG+=x86 CONFIG-=debug CONFIG+=release
