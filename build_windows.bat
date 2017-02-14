@@ -13,6 +13,7 @@ set PATH=C:\Qt\5.5\mingw492_32\bin;C:\Qt\Tools\mingw492_32\bin;%PATH%
 cd ./lmcapp/src
 qmake lmcapp.pro -spec win32-g++ CONFIG+=x86 CONFIG-=debug CONFIG+=release
 mingw32-make
+move ..\lib\lmcapp2 ..\lib\lmcapp
 
 cd ../../lmc/src
 qmake lmc.pro -spec win32-g++ CONFIG+=x86 CONFIG-=debug CONFIG+=release
