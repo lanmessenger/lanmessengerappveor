@@ -22,6 +22,7 @@ goto makefinish
 :msvc2013_32
 set PATH=C:\Qt\5.5\msvc2013\bin;%PATH%
 call "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" x86
+@echo on
 
 cd ./lmcapp/src
 qmake lmcapp.pro -spec win32-msvc2013 CONFIG+=x86 CONFIG-=debug CONFIG+=release
