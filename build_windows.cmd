@@ -2,26 +2,35 @@ echo on
 
 SET project_dir="%cd%"
 
-echo Set up environment...
-::set PATH=%QT%\bin\;C:\Qt\Tools\QtCreator\bin\;C:\Qt\QtIFW2.0.1\bin\;%PATH%
-::call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %PLATFORM%
-::set PATH=C:\Qt\Tools\mingw492_32\bin;%PATH%
-set PATH=C:\Qt\5.5\mingw492_32\bin\;C:\Qt\Tools\mingw492_32\bin;%PATH%
 
-echo Building lmcapp...
+if /i %1 == minigw32     goto minigw32
+if /i %1 == msvc2013_32  goto msvc2013_32
+goto minigw32
+
+:minigw32
+set PATH=C:\Qt\5.5\mingw492_32\bin;C:\Qt\Tools\mingw492_32\bin;%PATH%
+
 cd ./lmcapp/src
-::qmake lmcapp.pro -spec win32-msvc2013 CONFIG+=x86 CONFIG-=debug CONFIG+=release
-::nmake
 qmake lmcapp.pro -spec win32-g++ CONFIG+=x86 CONFIG-=debug CONFIG+=release
 mingw32-make
-dir ..\lib
 
-echo Building lmc...
 cd ../../lmc/src
-::qmake lmc.pro -spec win32-msvc2013 CONFIG+=x86 CONFIG-=debug CONFIG+=release
-::nmake
 qmake lmc.pro -spec win32-g++ CONFIG+=x86 CONFIG-=debug CONFIG+=release
 mingw32-make
+
+
+:msvc2013_32
+set PATH=C:\Qt\5.5\msvc2013\bin;%PATH%
+call "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" x86
+
+cd ./lmcapp/src
+qmake lmcapp.pro -spec win32-msvc2013 CONFIG+=x86 CONFIG-=debug CONFIG+=release
+nmake
+
+cd ../../lmc/src
+qmake lmc.pro -spec win32-msvc2013 CONFIG+=x86 CONFIG-=debug CONFIG+=release
+nmake
+
 
 ::echo Running tests...
 
