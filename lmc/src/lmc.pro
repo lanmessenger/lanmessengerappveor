@@ -157,7 +157,7 @@ unix:!symbian: LIBS += -L$$PWD/../../lmcapp/lib/ -llmcapp
 INCLUDEPATH += $$PWD/../../lmcapp/include
 DEPENDPATH += $$PWD/../../lmcapp/include
 
-win32: LIBS += -L$$PWD/../../openssl/lib/ -llibeay32 -lAdvapi32.lib
+win32: LIBS += -L$$PWD/../../openssl/lib/ -llibeay32 -lAdvapi32
 unix:!symbian: LIBS += -L$$PWD/../../openssl/lib/ -lcrypto
 
 INCLUDEPATH += $$PWD/../../openssl/include
