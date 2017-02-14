@@ -17,7 +17,7 @@ mingw32-make
 cd ../../lmc/src
 qmake lmc.pro -spec win32-g++ CONFIG+=x86 CONFIG-=debug CONFIG+=release
 mingw32-make
-
+goto makefinish
 
 :msvc2013_32
 set PATH=C:\Qt\5.5\msvc2013\bin;%PATH%
@@ -30,7 +30,9 @@ nmake
 cd ../../lmc/src
 qmake lmc.pro -spec win32-msvc2013 CONFIG+=x86 CONFIG-=debug CONFIG+=release
 nmake
+goto makefinish
 
+:makefinish
 
 ::echo Running tests...
 

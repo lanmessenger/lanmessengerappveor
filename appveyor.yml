@@ -10,4 +10,4 @@ init:
 
 build_script:
   - xcopy /E /I C:\OpenSSL-Win32 openssl
-  - call build_windows.cmd %COMPILER%
+  - call build_windows.bat %COMPILER%
