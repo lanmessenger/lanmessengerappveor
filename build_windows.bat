@@ -46,12 +46,12 @@ call "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" amd6
 dir C:\Qt\5.5\msvc2013_64\mkspecs
 
 cd ./lmcapp/src
-qmake lmcapp.pro -spec x64-msvc2013 CONFIG+=x86_64 CONFIG-=debug CONFIG+=release
+qmake lmcapp.pro CONFIG+=x86_64 CONFIG-=debug CONFIG+=release
 nmake
 dir ..\lib
 
 cd ../../lmc/src
-qmake lmc.pro -spec amd64-msvc2013 CONFIG+=x86_64 CONFIG-=debug CONFIG+=release
+qmake lmc.pro CONFIG+=x86_64 CONFIG-=debug CONFIG+=release
 nmake
 goto endmake
 
