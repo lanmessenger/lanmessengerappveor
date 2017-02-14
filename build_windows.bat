@@ -28,6 +28,7 @@ cd ./lmcapp/src
 qmake lmcapp.pro -spec win32-msvc2013 CONFIG+=x86 CONFIG-=debug CONFIG+=release
 nmake
 dir ..\lib
+dir /s ..\lmcapp*
 
 cd ../../lmc/src
 qmake lmc.pro -spec win32-msvc2013 CONFIG+=x86 CONFIG-=debug CONFIG+=release
