@@ -10,8 +10,8 @@ init:
   - set TAG_NAME=%APPVEYOR_REPO_TAG_NAME%
 
 install:
-  - if [%COMPILER%]==[msvc2013_64] ( xcopy /E /I C:\OpenSSL-Win32 openssl )
-    else ( xcopy /E /I C:\OpenSSL-Win64 openssl )
+  - if [%COMPILER%]==[msvc2013_64] ( xcopy /E /I C:\OpenSSL-Win64 openssl )
+    else ( xcopy /E /I C:\OpenSSL-Win32 openssl )
 
 build_script:
   - call build_windows.bat %COMPILER%
