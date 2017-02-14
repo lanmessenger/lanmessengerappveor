@@ -3,9 +3,7 @@ echo on
 SET project_dir="%cd%"
 
 
-if /i %1 == minigw32     goto minigw32
-if /i %1 == msvc2013_32  goto msvc2013_32
-goto minigw32
+goto %1
 
 
 
