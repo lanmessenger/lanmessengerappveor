@@ -4,7 +4,6 @@ environment:
   matrix:
   - COMPILER: mingw32
   - COMPILER: msvc2013_32
-  - COMPILER: msvc2013_64
 
 init:
   - set TAG_NAME=%APPVEYOR_REPO_TAG_NAME%

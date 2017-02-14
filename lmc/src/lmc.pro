@@ -150,11 +150,8 @@ CONFIG(debug, debug|release) {
     DESTDIR = ../release
 }
 
-#win32: {
-#    win32-g++: CONFIG(release, debug|release): LIBS += -L$$PWD/../../lmcapp/lib/ -llmcapp2
-#    else: CONFIG(release, debug|release): LIBS += -L$$PWD/../../lmcapp/lib/ -llmcapp
-#}
-#else:win32: CONFIG(debug, debug|release): LIBS += -L$$PWD/../../lmcapp/lib/ -llmcappd
+win32: CONFIG(release, debug|release): LIBS += -L$$PWD/../../lmcapp/lib/ -llmcapp2
+else:win32: CONFIG(debug, debug|release): LIBS += -L$$PWD/../../lmcapp/lib/ -llmcappd
 unix:!symbian: LIBS += -L$$PWD/../../lmcapp/lib/ -llmcapp
 
 INCLUDEPATH += $$PWD/../../lmcapp/include
