@@ -7,6 +7,8 @@ if /i %1 == minigw32     goto minigw32
 if /i %1 == msvc2013_32  goto msvc2013_32
 goto minigw32
 
+
+
 :minigw32
 set PATH=C:\Qt\5.5\mingw492_32\bin;C:\Qt\Tools\mingw492_32\bin;%PATH%
 
@@ -17,7 +19,9 @@ mingw32-make
 cd ../../lmc/src
 qmake lmc.pro -spec win32-g++ CONFIG+=x86 CONFIG-=debug CONFIG+=release
 mingw32-make
-goto makefinish
+goto endmake
+
+
 
 :msvc2013_32
 set PATH=C:\Qt\5.5\msvc2013\bin;%PATH%
@@ -27,15 +31,30 @@ call "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" x86
 cd ./lmcapp/src
 qmake lmcapp.pro -spec win32-msvc2013 CONFIG+=x86 CONFIG-=debug CONFIG+=release
 nmake
-dir ..\lib
-dir /s ..\lmcapp*
 
 cd ../../lmc/src
 qmake lmc.pro -spec win32-msvc2013 CONFIG+=x86 CONFIG-=debug CONFIG+=release
 nmake
-goto makefinish
+goto endmake
 
-:makefinish
+
+
+:msvc2013_64
+set PATH=C:\Qt\5.5\msvc2013_64;%PATH%
+call "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" amd64
+@echo on
+
+cd ./lmcapp/src
+qmake lmcapp.pro -spec win64-msvc2013 CONFIG+=x86_64 CONFIG-=debug CONFIG+=release
+nmake
+dir ..\lib
+
+cd ../../lmc/src
+qmake lmc.pro -spec win64-msvc2013 CONFIG+=x86_64 CONFIG-=debug CONFIG+=release
+nmake
+goto endmake
+
+:endmake
 
 ::echo Running tests...
 

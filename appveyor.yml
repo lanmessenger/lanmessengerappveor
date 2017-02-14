@@ -4,10 +4,14 @@ environment:
   matrix:
   - COMPILER: mingw32
   - COMPILER: msvc2013_32
+  - COMPILER: msvc2013_64
 
 init:
   - set TAG_NAME=%APPVEYOR_REPO_TAG_NAME%
 
+install:
+  - if [%COMPILER%]==[msvc2013_64] ( xcopy /E /I C:\OpenSSL-Win32 openssl )
+    else ( xcopy /E /I C:\OpenSSL-Win64 openssl )
+
 build_script:
-  - xcopy /E /I C:\OpenSSL-Win32 openssl
   - call build_windows.bat %COMPILER%
