@@ -43,6 +43,8 @@ set PATH=C:\Qt\5.5\msvc2013_64\bin;%PATH%
 call "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" amd64
 @echo on
 
+dir C:\Qt\5.5\msvc2013_64\mkspecs
+
 cd ./lmcapp/src
 qmake lmcapp.pro -spec x64-msvc2013 CONFIG+=x86_64 CONFIG-=debug CONFIG+=release
 nmake
