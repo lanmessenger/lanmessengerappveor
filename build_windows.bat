@@ -49,6 +49,7 @@ cd ./lmcapp/src
 qmake lmcapp.pro CONFIG+=x86_64 CONFIG-=debug CONFIG+=release
 nmake
 dir ..\lib
+dir ..\..\*.lib
 
 cd ../../lmc/src
 qmake lmc.pro CONFIG+=x86_64 CONFIG-=debug CONFIG+=release
