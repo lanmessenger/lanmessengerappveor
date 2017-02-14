@@ -7,7 +7,7 @@ goto %1
 
 
 
-:minigw32
+:mingw32
 set PATH=C:\Qt\5.5\mingw492_32\bin;C:\Qt\Tools\mingw492_32\bin;%PATH%
 
 cd ./lmcapp/src
@@ -38,7 +38,7 @@ goto endmake
 
 
 :msvc2013_64
-set PATH=C:\Qt\5.5\msvc2013_64;%PATH%
+set PATH=C:\Qt\5.5\msvc2013_64\bin;%PATH%
 call "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" amd64
 @echo on
 
