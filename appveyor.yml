@@ -2,7 +2,6 @@ os: Visual Studio 2015
 
 environment:
   matrix:
-  - COMPILER: mingw32_55_static
   - COMPILER: mingw32
   - COMPILER: msvc2013_32
   - COMPILER: msvc2013_64
@@ -11,7 +10,6 @@ init:
   - set TAG_NAME=%APPVEYOR_REPO_TAG_NAME%
 
 install:
-  - if [%COMPILER%]==[mingw32_55_static] ( windows-build-qt-static-modified.ps1 )
   - if [%COMPILER%]==[msvc2013_64] ( xcopy /E /I C:\OpenSSL-Win64 openssl )
     else ( xcopy /E /I C:\OpenSSL-Win32 openssl )
 

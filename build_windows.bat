@@ -5,15 +5,9 @@ SET project_dir="%cd%"
 
 goto %1
 
-:mingw32_55_static
-
-set PATH=C:\Qt\Static\5.5.1\bin;C:\Qt\Tools\mingw530_32;%PATH%
-goto mingw32_internal
-
 :mingw32
 set PATH=C:\Qt\5.5\mingw492_32\bin;C:\Qt\Tools\mingw492_32\bin;%PATH%
 
-:mingw32_internal
 cd ./lmcapp/src
 qmake lmcapp.pro -spec win32-g++ CONFIG+=x86 CONFIG-=debug CONFIG+=release
 mingw32-make
