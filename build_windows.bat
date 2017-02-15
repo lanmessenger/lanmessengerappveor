@@ -7,7 +7,7 @@ goto %1
 
 
 
-:mingw32
+:mingw32_55
 set PATH=C:\Qt\5.5\mingw492_32\bin;C:\Qt\Tools\mingw492_32\bin;%PATH%
 
 cd ./lmcapp/src
@@ -53,6 +53,22 @@ cd ../../lmc/src
 qmake lmc.pro CONFIG+=x86_64 CONFIG-=debug CONFIG+=release
 nmake
 goto endmake
+
+
+:mingw32_57
+set PATH=C:\Qt\5.7\mingw53_32\bin;C:\Qt\Tools\mingw530_32\bin;%PATH%
+
+cd ./lmcapp/src
+qmake lmcapp.pro -spec win32-g++ CONFIG+=x86 CONFIG-=debug CONFIG+=release
+mingw32-make
+move ..\lib\liblmcapp2.a ..\lib\liblmcapp.a
+
+cd ../../lmc/src
+qmake lmc.pro -spec win32-g++ CONFIG+=x86 CONFIG-=debug CONFIG+=release
+mingw32-make
+goto endmake
+
+
 
 :endmake
 
