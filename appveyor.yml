@@ -11,9 +11,9 @@ init:
   - set TAG_NAME=%APPVEYOR_REPO_TAG_NAME%
 
 install:
-  - if [%COMPILER%]==[mingw32_55_static] ( ps: windows-build-qt-static-modified.ps1 )
-#  - if [%COMPILER%]==[msvc2013_64] ( xcopy /E /I C:\OpenSSL-Win64 openssl )
-#    else ( xcopy /E /I C:\OpenSSL-Win32 openssl )
+  - if [%COMPILER%]==[mingw32_55_static] ( windows-build-qt-static-modified.ps1 )
+  - if [%COMPILER%]==[msvc2013_64] ( xcopy /E /I C:\OpenSSL-Win64 openssl )
+    else ( xcopy /E /I C:\OpenSSL-Win32 openssl )
 
 build_script:
   - call build_windows.bat %COMPILER%
