@@ -2,8 +2,7 @@ os: Visual Studio 2015
 
 environment:
   matrix:
-  - COMPILER: mingw32_57
-  - COMPILER: mingw32_55
+  - COMPILER: mingw32
   - COMPILER: msvc2013_32
   - COMPILER: msvc2013_64
 
