@@ -8,11 +8,17 @@ QT       += core gui network xml widgets multimedia
 unix: QT += webkit webkitwidgets
 macx: QT += webkit webkitwidgets
 
-win32: QT += webkit webkitwidgets
-#win32: INCLUDEPATH += C:/Qt/Static/src/qt-everywhere-opensource-src-5.5.1/qtwebkit/include
-#win32: INCLUDEPATH += C:/Qt/Static/src/qt-everywhere-opensource-src-5.5.1/qtwebkit/include/QtWebKit
-#win32: INCLUDEPATH += C:/Qt/Static/src/qt-everywhere-opensource-src-5.5.1/qtwebkit/include/QtWebKitWidgets
-#win32: LIBS += -L"C:/Qt/Static/src/qt-everywhere-opensource-src-5.5.1/qtwebkit/WebKitBuild/Release/lib" -lQt5WebKit -lQt5WebKitWidgets
+win32: {
+    contains(QMAKE_QMAKE, /Static/) {
+        win32: INCLUDEPATH += C:/Qt/Static/src/qt-everywhere-opensource-src-5.5.1/qtwebkit/include
+        win32: INCLUDEPATH += C:/Qt/Static/src/qt-everywhere-opensource-src-5.5.1/qtwebkit/include/QtWebKit
+        win32: INCLUDEPATH += C:/Qt/Static/src/qt-everywhere-opensource-src-5.5.1/qtwebkit/include/QtWebKitWidgets
+        win32: LIBS += -L"C:/Qt/Static/src/qt-everywhere-opensource-src-5.5.1/qtwebkit/WebKitBuild/Release/lib" -lQt5WebKit -lQt5WebKitWidgets
+    }
+    else {
+        QT += webkit webkitwidgets
+    }
+}
 
 win32: TARGET = lmc
 unix: TARGET = lan-messenger
