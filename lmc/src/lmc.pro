@@ -9,7 +9,7 @@ unix: QT += webkit webkitwidgets
 macx: QT += webkit webkitwidgets
 
 win32: {
-    contains(QMAKE_QMAKE, /Static/) {
+    contains(DEFINES, QT_STATIC_BUILD) {
         win32: INCLUDEPATH += C:/Qt/Static/src/qt-everywhere-opensource-src-5.5.1/qtwebkit/include
         win32: INCLUDEPATH += C:/Qt/Static/src/qt-everywhere-opensource-src-5.5.1/qtwebkit/include/QtWebKit
         win32: INCLUDEPATH += C:/Qt/Static/src/qt-everywhere-opensource-src-5.5.1/qtwebkit/include/QtWebKitWidgets
